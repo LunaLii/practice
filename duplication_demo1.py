@@ -1,6 +1,6 @@
 # Refactoring Workbook Chapter 6 Duplication Challenge 1 (Exercise 14)
 
-# Step 2 - write DocTests outside the existing code
+# Step 3 - write get_times DocTests in an individual text file
 
 
 class MissingPropertiesException(Exception):

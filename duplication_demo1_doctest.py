@@ -1,21 +1,12 @@
 # Refactoring Workbook Chapter 6 Duplication Challenge 1 (Exercise 14)
 
-# Step 2 - write DocTests outside the existing code
-
-"""
->>> from duplication_demo1 import get_times
->>> get_times(interval=10, duration=10, departure=20)
-[10, 10, 20]
->>> get_times(interval=0, duration=10, departure=20) # doctest: +ELLIPSIS
-Traceback (most recent call last):
-...
-duplication_demo1.MissingPropertiesException: monitor interval > 0
-"""
+# Step 3 - write get_times DocTests in an individual text file
 
 
 def test():
     import doctest
-    return doctest.testmod(verbose=True)
+    doctest.testfile("duplication_demo1_get_times_doctest.txt", verbose=1)
+    doctest.testfile("duplication_demo1_get_times_doctest_again.txt", verbose=1)
 
 
 if __name__ == "__main__":
