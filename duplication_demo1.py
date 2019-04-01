@@ -1,6 +1,6 @@
 # Refactoring Workbook Chapter 6 Duplication Challenge 1 (Exercise 14)
 
-# Step 7 - get rid of the temp variable "value"
+# Step 8 - return a list with items directly
 
 
 class MissingPropertiesException(Exception):
@@ -21,11 +21,11 @@ def get_value(kargs, target, message1, message2=None):
 
 def check_value(value, check_interval, target):
     if (value % check_interval) != 0:
-        raise MissingPropertiesException(target + " % check_interval")
+        raise MissingPropertiesException(target + " % checkInterval")
 
 
 def get_times(**kargs):
-    #    if not "interval" in kargs:
+    #    if "interval" not in kargs:
     #        raise MissingPropertiesException("monitor interval")
     #    value = kargs["interval"]
     #    if value <= 0:
@@ -34,7 +34,7 @@ def get_times(**kargs):
     #    check_interval = value
     check_interval = get_value(kargs, "interval", "monitor interval")
 
-    #    if not "duration" in kargs:
+    #    if "duration" not in kargs:
     #        raise MissingPropertiesException("duration")
     #    value = kargs["duration"]
     #    if value <= 0:
@@ -47,8 +47,7 @@ def get_times(**kargs):
     check_value(monitor_time, check_interval, "duration")
 
     #    monitor_time = value
-
-    #    if not "departure" in kargs:
+    #    if "departure" not in kargs:
     #        raise MissingPropertiesException("departure offset")
     #    value = kargs["departure"]
     #    if value <= 0:
@@ -63,11 +62,12 @@ def get_times(**kargs):
 
     #    departure_offset = value
 
-    result = []
-    result.append(check_interval)
-    result.append(monitor_time)
-    result.append(departure_offset)
-    return result
+    #    result = []
+    #    result.append(check_interval)
+    #    result.append(monitor_time)
+    #    result.append(departure_offset)
+    #    return result
+    return [check_interval, monitor_time, departure_offset]
 
 
 if __name__ == "__main__":
