@@ -1,6 +1,6 @@
 # Refactoring Workbook Chapter 6 Duplication Challenge 1 (Exercise 14)
 
-# Step 6 - extract duplicated code by extract method
+# Step 7 - get rid of the temp variable "value"
 
 
 class MissingPropertiesException(Exception):
@@ -40,12 +40,13 @@ def get_times(**kargs):
     #    if value <= 0:
     #        raise MissingPropertiesException("duration > 0")
 
-    value = get_value(kargs, "duration", "duration")
+    #    value = get_value(kargs, "duration", "duration")
+    monitor_time = get_value(kargs, "duration", "duration")
     #    if (value % check_interval) != 0:
     #        raise MissingPropertiesException("duration % check_interval")
-    check_value(value, check_interval, "duration")
+    check_value(monitor_time, check_interval, "duration")
 
-    monitor_time = value
+    #    monitor_time = value
 
     #    if not "departure" in kargs:
     #        raise MissingPropertiesException("departure offset")
@@ -53,12 +54,14 @@ def get_times(**kargs):
     #    if value <= 0:
     #        raise MissingPropertiesException("departure > 0")
 
-    value = get_value(kargs, "departure", "departure offset", "departure")
+    #    value = get_value(kargs, "departure", "departure offset", "departure")
+    departure_offset = get_value(kargs, "departure", "departure offset",
+                               "departure")
     #    if (value % check_interval) != 0:
     #        raise MissingPropertiesException("departure % check_interval")
-    check_value(value, check_interval, "departure")
+    check_value(departure_offset, check_interval, "departure")
 
-    departure_offset = value
+    #    departure_offset = value
 
     result = []
     result.append(check_interval)
