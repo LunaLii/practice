@@ -1,6 +1,6 @@
 # Refactoring Workbook Chapter 6 Duplication Challenge 1 (Exercise 14)
 
-# Step 5 - extract duplicated code by extract method
+# Step 6 - extract duplicated code by extract method
 
 
 class MissingPropertiesException(Exception):
@@ -17,6 +17,11 @@ def get_value(kargs, target, message1, message2=None):
         else:
             raise MissingPropertiesException(message2 + " > 0")
     return value
+
+
+def check_value(value, check_interval, target):
+    if (value % check_interval) != 0:
+        raise MissingPropertiesException(target + " % check_interval")
 
 
 def get_times(**kargs):
@@ -36,9 +41,9 @@ def get_times(**kargs):
     #        raise MissingPropertiesException("duration > 0")
 
     value = get_value(kargs, "duration", "duration")
-
-    if (value % check_interval) != 0:
-        raise MissingPropertiesException("duration % check_interval")
+    #    if (value % check_interval) != 0:
+    #        raise MissingPropertiesException("duration % check_interval")
+    check_value(value, check_interval, "duration")
 
     monitor_time = value
 
@@ -49,8 +54,9 @@ def get_times(**kargs):
     #        raise MissingPropertiesException("departure > 0")
 
     value = get_value(kargs, "departure", "departure offset", "departure")
-    if (value % check_interval) != 0:
-        raise MissingPropertiesException("departure % check_interval")
+    #    if (value % check_interval) != 0:
+    #        raise MissingPropertiesException("departure % check_interval")
+    check_value(value, check_interval, "departure")
 
     departure_offset = value
 
